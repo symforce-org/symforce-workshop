@@ -1,0 +1,692 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>SymForce Tutorial ICRA 2023</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="fc96ee1f-5005-40bd-8d9c-4ece5fdef6ec" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🔻</span></div><h1 class="page-title">SymForce Tutorial ICRA 2023</h1></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="29b1d998-4e92-4595-8e7d-bb9716f80487"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%"><a href="https://docs.google.com/document/d/1PqDJNyN9UeYgw_qzIBaaPAbq24I7XtJ6BIjUGff8Z4g/edit">Submission Planning Doc</a>
+Half day tutorial<blockquote id="6562d624-3163-43a4-9a19-267aecdf95a6" class="">make decisions based on (i) the topic of the proposed event, (ii) the event’s format and likelihood of creating an engaging intellectual environment, and (iii) the inclusiveness of the event to people with different backgrounds and expertise.</blockquote></div></figure><h3 id="01316ff1-b776-4b89-a5a4-cdba395c677f" class=""><details open=""><summary>Brainstorm Section</summary></details></h3><div class="indented"><ul id="4b7d1ff3-e5b1-4118-b538-04e5eb92ea14" class="toggle"><li><details open=""><summary>Example program</summary><p id="e9a9d765-374b-46db-91f8-aad240668ad6" class="">Tutorial Schedule (Monday, May 23rd, 2022 - 4 hours total , morning)</p><p id="f951a9dc-7fb7-4e71-9460-261cf9dd6ae0" class="">Part 1: Fundamentals
+8:30 Welcome and Introduction to the field (Arianna Menciassi)
+8:45 Modeling, Design &amp; Actuation (Robert Howe)</p><p id="35ffc553-3002-4cb1-a93e-ac4d337648e0" class="">Part 2: Applications (12 minute talks with 3 minutes questions/discussion)
+9:00 Application talk 1: Matteo Cianchetti
+Fiber jamming for surgical robotics
+9:15 Application talk 2:  Allison Okamura
+Layer jamming for vine robots</p><p id="90955ccc-3eb6-4ea9-9246-cf7da7423b3e" class="">9:30 Break</p><p id="9262e50b-3625-493f-be95-f5452f844457" class="">9:45 Application talk 3:  Erez Krimsky
+Electroadhesive Jamming for Energy-Recycling Actuation
+10:00 Application talk 4: Yong-Lae Park
+Selectively Stiffening Garments by Sandwich Layer Jamming for Wearables
+10:15 Application talk 5:  Saurabh Jadhav
+Jamming-based Haptic Gloves</p><p id="665bac9a-e78d-41b7-91df-f2bf31363187" class="">10:30 Break</p><p id="fb92fb5d-4874-4628-ae26-ee1e03c609e6" class="">Part 3: Hands-on session
+10:45 Introduction to materials (layer, grain, fiber), fabrication instructions, tips &amp; tricks (Buse Aktas)
+11:00 Fabrication time
+12:00 Testing and sharing</p><p id="433578fb-985f-4f4a-885c-1ca6816957fd" class="">12:30 End</p></details></li></ul><ul id="937bfe41-303d-4e13-bfdc-3a02b7719e82" class="bulleted-list"><li style="list-style-type:disc">make a separate symforce tutorial repo under symforce-org</li></ul><ul id="736986ed-af03-4450-8bdf-3560af6ae275" class="bulleted-list"><li style="list-style-type:disc">note on citations</li></ul><ul id="ce63404f-b030-4165-8871-57789ecf67a2" class="bulleted-list"><li style="list-style-type:disc">People bring computers and are writing code as we go<ul id="71366146-aafc-4da1-bd1f-24c93f87c281" class="bulleted-list"><li style="list-style-type:circle">Maybe a fallback if you don’t have a laptop</li></ul></li></ul><ul id="8ef2260b-b5a1-42cc-8ac3-44cae85eb7bd" class="bulleted-list"><li style="list-style-type:disc">Maybe some example speaker external to skydio, talking about use cases</li></ul><p id="4be56075-e25b-4e7f-81c2-c4f2bcd0f346" class="">Good examples:</p><ul id="aab01ca7-bf6b-43e8-8809-5ee1e8e5b2d2" class="bulleted-list"><li style="list-style-type:disc"><a href="https://projects.iq.harvard.edu/jamming-tutorial">https://projects.iq.harvard.edu/jamming-tutorial</a></li></ul><ul id="ddb3051f-fd80-447a-b2cb-be068addc2c1" class="bulleted-list"><li style="list-style-type:disc"><a href="https://abstractionlanguages.github.io/IROS2019/">https://abstractionlanguages.github.io/IROS2019/</a></li></ul><ul id="be58c3c5-e389-4d01-958f-cdfe788f6079" class="bulleted-list"><li style="list-style-type:disc">Discussion section, take questions and brainstorm</li></ul></div><p id="dd594221-cf01-497e-b8aa-825ddf137c6f" class="">
+</p><h1 id="29172514-3a3d-44ba-9026-53aff04c5cf5" class="">Symbolic Computation to Accelerate Robotics</h1><h3 id="00451e36-67f6-45c7-a7e0-a60554fdc612" class="">Tutorial for <a href="https://www.icra2023.org/">ICRA 2023</a></h3><p id="9c98927d-4149-46e3-a0c8-9eacbab95ac9" class=""><a href="https://github.com/symforce-org/symforce">SymForce Code</a></p><p id="7770915c-9243-441d-9aa8-f7d4d6280b3c" class=""><a href="https://github.com/symforce-org/symforce-workshop">Tutorial Code</a></p><p id="b03cab1f-c33a-4b57-b9ff-c4792ba76afd" class=""><a href="https://symforce.org/">SymForce Documentation</a></p><figure id="a12baa85-16b2-4f92-bfe2-f997ff4221ef" class="image"><a href="SymForce%20Tutorial%20ICRA%202023%20fc96ee1f500540bd8d9c4ece5fdef6ec/Untitled.png"><img style="width:1200px" src="SymForce%20Tutorial%20ICRA%202023%20fc96ee1f500540bd8d9c4ece5fdef6ec/Untitled.png"/></a></figure><h2 id="f629433c-470f-41a6-b08e-d72d021e347b" class="">Introduction</h2><p id="487b7d81-f76d-43ba-92e0-365d520a0d03" class="">(WIP)</p><p id="18856014-4dc2-4578-9425-4d1e99aeae95" class="">SymForce is an open-source library for writing algorithmic code like SLAM, MPC, calibration, bundle adjustment, and controls. Compared to alternatives it results in:</p><ol type="1" id="d25b3d71-e581-4f60-bf93-feab0e88cbea" class="numbered-list" start="1"><li>Faster runtime performance, with a highly performant code generator</li></ol><ol type="1" id="c1908800-e186-4fdd-afc7-12aee029b027" class="numbered-list" start="2"><li>Faster development cycles, using symbolic math with no handwritten derivatives</li></ol><ol type="1" id="ab623269-10cf-4965-863d-01549febee16" class="numbered-list" start="3"><li>Fewer lines of code, maintain one problem formulation and autogenerate the rest</li></ol><p id="1ebd9f73-cec0-4450-ae01-e309dec60431" class=""><strong>The primary workflow of SymForce consists of three stages:</strong></p><ol type="1" id="90d6e1e2-1234-4fa3-ad79-4e34eee83d38" class="numbered-list" start="1"><li><strong>Symbolic Math - </strong><strong>Model your problem in Python with the SymPy API extended to include symbolic geometry types, camera models, and Lie group calculus</strong></li></ol><ol type="1" id="2c93c7ef-2382-47c7-9b54-5b251901de7f" class="numbered-list" start="2"><li><strong>Code Generation - </strong><strong>Introspect symbolic functions to autogenerate highly performant runtime functions for any language</strong></li></ol><ol type="1" id="fc6088d9-82b5-4ef5-9d9b-3164e458f598" class="numbered-list" start="3"><li><strong>Optimization - Use generated functions as factors in our tangent-space optimizer for real-time robotics applications, in either C++ or Python</strong></li></ol><p id="a22698a0-0ebb-4791-92aa-8642cf941dee" class="">
+</p><p id="02c4d674-3702-4e80-91c2-b408fa4cce86" class="">
+</p><p id="ca993289-70a9-4d7f-b69a-570032c99ef9" class="">This tutorial focuses on the use of symbolic computation, code generation, and nonlinear optimization to solve robotics problems using the recently released SymForce software library. During this interactive session, we will show users how they can use symbolic computation and code generation to reduce software development time without sacrificing computational performance on robotics problems such as SLAM, MPC, calibration, bundle adjustment, and controls.</p><p id="2a6cbcda-39c1-4d21-8380-4f282adf0a1c" class="">
+</p><p id="1f05bb69-5ed9-48ec-8044-f1a96021f485" class="">
+</p><p id="d78d5e7b-a57c-4c41-978a-d955d34875ad" class=""><a href="https://abstractionlanguages.github.io/IROS2019/">https://abstractionlanguages.github.io/IROS2019/</a></p><h2 id="61288795-5d87-4583-8fe8-ba6212b241bc" class="">Topics of Interest</h2><h2 id="15df683c-dc68-4f3f-99da-e32ecc3c8792" class="">Intended Audience</h2><h2 id="9e1643a8-1b4d-4ca3-bceb-d174daea5200" class="">Program</h2><table id="bdee9749-6a20-4b5a-b117-5da51f53d18e" class="simple-table"><tbody><tr id="39b9c00e-87e6-4e82-af4a-af38373f07bf"><td id="mGrl" class="" style="width:283px">8:30-8:45</td><td id="=gYe" class="" style="width:352px">Introduction to SymForce: Using symbolic computing to accelerate robotics development</td></tr><tr id="81e93bc5-90a2-4ef7-8ab6-db8712214f33"><td id="mGrl" class="" style="width:283px">8:45 - 9:00</td><td id="=gYe" class="" style="width:352px">Setup + Installation</td></tr><tr id="6deaf644-8800-48a5-97c5-a47dd07a917a"><td id="mGrl" class="" style="width:283px">9:00-9:30</td><td id="=gYe" class="" style="width:352px">SymForce Components Overview (symbolic 3D geometry and cameras, Values, codegen)
+
+Using 3D localization with point measurements example</td></tr><tr id="0c163258-fc3f-4942-814f-b725a7443c90"><td id="mGrl" class="" style="width:283px">9:30-10:00</td><td id="=gYe" class="" style="width:352px">Coffee break</td></tr><tr id="1daf515c-b247-4356-b01e-5bbbb82301b2"><td id="mGrl" class="" style="width:283px">10:00-12:00</td><td id="=gYe" class="" style="width:352px">Interactive session: Using SymForce to solve other example problems</td></tr><tr id="43eb3717-97db-45a7-aa71-fc7a4a26b9c7"><td id="mGrl" class="" style="width:283px">12:00 - 12:30</td><td id="=gYe" class="" style="width:352px">General Q&amp;A</td></tr></tbody></table><p id="4bfa1227-3065-4b8f-8a11-61b857836c2c" class="">external speakers?</p><p id="7c560e3e-183e-4cd1-87cb-f9936fd05757" class="">discussion section?</p><h2 id="d1fde72c-eddf-48f8-85ef-67ce801c32bf" class="">Organizers</h2><p id="f4b7200d-b768-4332-8862-933d2ad1fd1b" class="">Hayk Martiros, Skydio, &lt;email&gt;</p><p id="1550ac71-07d5-412b-9875-b81d7210a2f8" class="">Aaron Miller, Skydio, &lt;email&gt;</p><p id="db5c190a-be07-4d41-ae67-c932497d392c" class="">Nathan Bucki, Skydio, &lt;email&gt;</p><p id="b8c7beed-4be9-483c-9da5-3d35094195b5" class="">Bradley Solliday, Skydio, &lt;email&gt;</p><p id="c71c8c87-8b65-44e2-bb20-07c4fa4254de" class="">Harrison Zheng, Skydio, &lt;email&gt;</p><p id="d413ae06-ece3-460a-a952-86f2d360dc5d" class="">
+</p></div></article></body></html>
