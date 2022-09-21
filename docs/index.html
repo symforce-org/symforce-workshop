@@ -1,4 +1,6 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>SymForce Tutorial ICRA 2023</title><style>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Symbolic Computation Tutorial - ICRA 2023</title>
+<style>
 /* cspell:disable-file */
 /* webkit printing magic: print all background colors */
 html {
@@ -7,6 +9,32 @@ html {
 * {
 	box-sizing: border-box;
 	-webkit-print-color-adjust: exact;
+}
+
+
+header {
+	margin-bottom: -8em;
+}
+
+header > h3 {
+	margin-top: -3em;
+}
+article {
+	margin-top: -5em;
+}
+
+.figure-1 {
+	width: 85%;
+}
+
+.figure-2 {
+	width: 85%;
+}
+
+.figure-3 {
+	width: 50%;
+	margin-left: -20em;
+	margin-top: -3em;
 }
 
 html,
@@ -148,7 +176,7 @@ img {
 
 .table_of_contents-item {
 	display: block;
-	font-size: 0.875rem;
+	font-size: 1.0rem;
 	line-height: 1.3;
 	padding: 0.125rem;
 }
@@ -181,10 +209,12 @@ td {
 table {
 	border-left: none;
 	border-right: none;
+	width: 90%;
 }
 
 th,
 td {
+	font-size: 1.2em;
 	font-weight: normal;
 	padding: 0.25em 0.5em;
 	line-height: 1.5;
@@ -665,28 +695,16 @@ blockquote {
 .checkbox-off {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
-	
-</style></head><body><article id="fc96ee1f-5005-40bd-8d9c-4ece5fdef6ec" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🔻</span></div><h1 class="page-title">SymForce Tutorial ICRA 2023</h1></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="29b1d998-4e92-4595-8e7d-bb9716f80487"><div style="font-size:1.5em"><span class="icon">ℹ️</span></div><div style="width:100%"><a href="https://docs.google.com/document/d/1PqDJNyN9UeYgw_qzIBaaPAbq24I7XtJ6BIjUGff8Z4g/edit">Submission Planning Doc</a>
-Half day tutorial<blockquote id="6562d624-3163-43a4-9a19-267aecdf95a6" class="">make decisions based on (i) the topic of the proposed event, (ii) the event’s format and likelihood of creating an engaging intellectual environment, and (iii) the inclusiveness of the event to people with different backgrounds and expertise.</blockquote></div></figure><h3 id="01316ff1-b776-4b89-a5a4-cdba395c677f" class=""><details open=""><summary>Brainstorm Section</summary></details></h3><div class="indented"><ul id="4b7d1ff3-e5b1-4118-b538-04e5eb92ea14" class="toggle"><li><details open=""><summary>Example program</summary><p id="e9a9d765-374b-46db-91f8-aad240668ad6" class="">Tutorial Schedule (Monday, May 23rd, 2022 - 4 hours total , morning)</p><p id="f951a9dc-7fb7-4e71-9460-261cf9dd6ae0" class="">Part 1: Fundamentals
-8:30 Welcome and Introduction to the field (Arianna Menciassi)
-8:45 Modeling, Design &amp; Actuation (Robert Howe)</p><p id="35ffc553-3002-4cb1-a93e-ac4d337648e0" class="">Part 2: Applications (12 minute talks with 3 minutes questions/discussion)
-9:00 Application talk 1: Matteo Cianchetti
-Fiber jamming for surgical robotics
-9:15 Application talk 2:  Allison Okamura
-Layer jamming for vine robots</p><p id="90955ccc-3eb6-4ea9-9246-cf7da7423b3e" class="">9:30 Break</p><p id="9262e50b-3625-493f-be95-f5452f844457" class="">9:45 Application talk 3:  Erez Krimsky
-Electroadhesive Jamming for Energy-Recycling Actuation
-10:00 Application talk 4: Yong-Lae Park
-Selectively Stiffening Garments by Sandwich Layer Jamming for Wearables
-10:15 Application talk 5:  Saurabh Jadhav
-Jamming-based Haptic Gloves</p><p id="665bac9a-e78d-41b7-91df-f2bf31363187" class="">10:30 Break</p><p id="fb92fb5d-4874-4628-ae26-ee1e03c609e6" class="">Part 3: Hands-on session
-10:45 Introduction to materials (layer, grain, fiber), fabrication instructions, tips &amp; tricks (Buse Aktas)
-11:00 Fabrication time
-12:00 Testing and sharing</p><p id="433578fb-985f-4f4a-885c-1ca6816957fd" class="">12:30 End</p></details></li></ul><ul id="937bfe41-303d-4e13-bfdc-3a02b7719e82" class="bulleted-list"><li style="list-style-type:disc">make a separate symforce tutorial repo under symforce-org</li></ul><ul id="736986ed-af03-4450-8bdf-3560af6ae275" class="bulleted-list"><li style="list-style-type:disc">note on citations</li></ul><ul id="ce63404f-b030-4165-8871-57789ecf67a2" class="bulleted-list"><li style="list-style-type:disc">People bring computers and are writing code as we go<ul id="71366146-aafc-4da1-bd1f-24c93f87c281" class="bulleted-list"><li style="list-style-type:circle">Maybe a fallback if you don’t have a laptop</li></ul></li></ul><ul id="8ef2260b-b5a1-42cc-8ac3-44cae85eb7bd" class="bulleted-list"><li style="list-style-type:disc">Maybe some example speaker external to skydio, talking about use cases</li></ul><p id="4be56075-e25b-4e7f-81c2-c4f2bcd0f346" class="">Good examples:</p><ul id="aab01ca7-bf6b-43e8-8809-5ee1e8e5b2d2" class="bulleted-list"><li style="list-style-type:disc"><a href="https://projects.iq.harvard.edu/jamming-tutorial">https://projects.iq.harvard.edu/jamming-tutorial</a></li></ul><ul id="ddb3051f-fd80-447a-b2cb-be068addc2c1" class="bulleted-list"><li style="list-style-type:disc"><a href="https://abstractionlanguages.github.io/IROS2019/">https://abstractionlanguages.github.io/IROS2019/</a></li></ul><ul id="be58c3c5-e389-4d01-958f-cdfe788f6079" class="bulleted-list"><li style="list-style-type:disc">Discussion section, take questions and brainstorm</li></ul></div><p id="dd594221-cf01-497e-b8aa-825ddf137c6f" class="">
-</p><h1 id="29172514-3a3d-44ba-9026-53aff04c5cf5" class="">Symbolic Computation to Accelerate Robotics</h1><h3 id="00451e36-67f6-45c7-a7e0-a60554fdc612" class="">Tutorial for <a href="https://www.icra2023.org/">ICRA 2023</a></h3><p id="9c98927d-4149-46e3-a0c8-9eacbab95ac9" class=""><a href="https://github.com/symforce-org/symforce">SymForce Code</a></p><p id="7770915c-9243-441d-9aa8-f7d4d6280b3c" class=""><a href="https://github.com/symforce-org/symforce-workshop">Tutorial Code</a></p><p id="b03cab1f-c33a-4b57-b9ff-c4792ba76afd" class=""><a href="https://symforce.org/">SymForce Documentation</a></p><figure id="a12baa85-16b2-4f92-bfe2-f997ff4221ef" class="image"><a href="SymForce%20Tutorial%20ICRA%202023%20fc96ee1f500540bd8d9c4ece5fdef6ec/Untitled.png"><img style="width:1200px" src="SymForce%20Tutorial%20ICRA%202023%20fc96ee1f500540bd8d9c4ece5fdef6ec/Untitled.png"/></a></figure><h2 id="f629433c-470f-41a6-b08e-d72d021e347b" class="">Introduction</h2><p id="487b7d81-f76d-43ba-92e0-365d520a0d03" class="">(WIP)</p><p id="18856014-4dc2-4578-9425-4d1e99aeae95" class="">SymForce is an open-source library for writing algorithmic code like SLAM, MPC, calibration, bundle adjustment, and controls. Compared to alternatives it results in:</p><ol type="1" id="d25b3d71-e581-4f60-bf93-feab0e88cbea" class="numbered-list" start="1"><li>Faster runtime performance, with a highly performant code generator</li></ol><ol type="1" id="c1908800-e186-4fdd-afc7-12aee029b027" class="numbered-list" start="2"><li>Faster development cycles, using symbolic math with no handwritten derivatives</li></ol><ol type="1" id="ab623269-10cf-4965-863d-01549febee16" class="numbered-list" start="3"><li>Fewer lines of code, maintain one problem formulation and autogenerate the rest</li></ol><p id="1ebd9f73-cec0-4450-ae01-e309dec60431" class=""><strong>The primary workflow of SymForce consists of three stages:</strong></p><ol type="1" id="90d6e1e2-1234-4fa3-ad79-4e34eee83d38" class="numbered-list" start="1"><li><strong>Symbolic Math - </strong><strong>Model your problem in Python with the SymPy API extended to include symbolic geometry types, camera models, and Lie group calculus</strong></li></ol><ol type="1" id="2c93c7ef-2382-47c7-9b54-5b251901de7f" class="numbered-list" start="2"><li><strong>Code Generation - </strong><strong>Introspect symbolic functions to autogenerate highly performant runtime functions for any language</strong></li></ol><ol type="1" id="fc6088d9-82b5-4ef5-9d9b-3164e458f598" class="numbered-list" start="3"><li><strong>Optimization - Use generated functions as factors in our tangent-space optimizer for real-time robotics applications, in either C++ or Python</strong></li></ol><p id="a22698a0-0ebb-4791-92aa-8642cf941dee" class="">
-</p><p id="02c4d674-3702-4e80-91c2-b408fa4cce86" class="">
-</p><p id="ca993289-70a9-4d7f-b69a-570032c99ef9" class="">This tutorial focuses on the use of symbolic computation, code generation, and nonlinear optimization to solve robotics problems using the recently released SymForce software library. During this interactive session, we will show users how they can use symbolic computation and code generation to reduce software development time without sacrificing computational performance on robotics problems such as SLAM, MPC, calibration, bundle adjustment, and controls.</p><p id="2a6cbcda-39c1-4d21-8380-4f282adf0a1c" class="">
-</p><p id="1f05bb69-5ed9-48ec-8044-f1a96021f485" class="">
-</p><p id="d78d5e7b-a57c-4c41-978a-d955d34875ad" class=""><a href="https://abstractionlanguages.github.io/IROS2019/">https://abstractionlanguages.github.io/IROS2019/</a></p><h2 id="61288795-5d87-4583-8fe8-ba6212b241bc" class="">Topics of Interest</h2><h2 id="15df683c-dc68-4f3f-99da-e32ecc3c8792" class="">Intended Audience</h2><h2 id="9e1643a8-1b4d-4ca3-bceb-d174daea5200" class="">Program</h2><table id="bdee9749-6a20-4b5a-b117-5da51f53d18e" class="simple-table"><tbody><tr id="39b9c00e-87e6-4e82-af4a-af38373f07bf"><td id="mGrl" class="" style="width:283px">8:30-8:45</td><td id="=gYe" class="" style="width:352px">Introduction to SymForce: Using symbolic computing to accelerate robotics development</td></tr><tr id="81e93bc5-90a2-4ef7-8ab6-db8712214f33"><td id="mGrl" class="" style="width:283px">8:45 - 9:00</td><td id="=gYe" class="" style="width:352px">Setup + Installation</td></tr><tr id="6deaf644-8800-48a5-97c5-a47dd07a917a"><td id="mGrl" class="" style="width:283px">9:00-9:30</td><td id="=gYe" class="" style="width:352px">SymForce Components Overview (symbolic 3D geometry and cameras, Values, codegen)
 
-Using 3D localization with point measurements example</td></tr><tr id="0c163258-fc3f-4942-814f-b725a7443c90"><td id="mGrl" class="" style="width:283px">9:30-10:00</td><td id="=gYe" class="" style="width:352px">Coffee break</td></tr><tr id="1daf515c-b247-4356-b01e-5bbbb82301b2"><td id="mGrl" class="" style="width:283px">10:00-12:00</td><td id="=gYe" class="" style="width:352px">Interactive session: Using SymForce to solve other example problems</td></tr><tr id="43eb3717-97db-45a7-aa71-fc7a4a26b9c7"><td id="mGrl" class="" style="width:283px">12:00 - 12:30</td><td id="=gYe" class="" style="width:352px">General Q&amp;A</td></tr></tbody></table><p id="4bfa1227-3065-4b8f-8a11-61b857836c2c" class="">external speakers?</p><p id="7c560e3e-183e-4cd1-87cb-f9936fd05757" class="">discussion section?</p><h2 id="d1fde72c-eddf-48f8-85ef-67ce801c32bf" class="">Organizers</h2><p id="f4b7200d-b768-4332-8862-933d2ad1fd1b" class="">Hayk Martiros, Skydio, &lt;email&gt;</p><p id="1550ac71-07d5-412b-9875-b81d7210a2f8" class="">Aaron Miller, Skydio, &lt;email&gt;</p><p id="db5c190a-be07-4d41-ae67-c932497d392c" class="">Nathan Bucki, Skydio, &lt;email&gt;</p><p id="b8c7beed-4be9-483c-9da5-3d35094195b5" class="">Bradley Solliday, Skydio, &lt;email&gt;</p><p id="c71c8c87-8b65-44e2-bb20-07c4fa4254de" class="">Harrison Zheng, Skydio, &lt;email&gt;</p><p id="d413ae06-ece3-460a-a952-86f2d360dc5d" class="">
-</p></div></article></body></html>
+</style></head><body>
+	<article id="fc96ee1f-5005-40bd-8d9c-4ece5fdef6ec" class="page sans">
+		<header>
+			<h1 class="page-title">Symbolic Computation to Accelerate Robotics</h1>
+			<h3 id="00451e36-67f6-45c7-a7e0-a60554fdc612" class="subtitle"><em><strong>A Hands-On Half-Day Tutorial at</strong></em> <em><a href="https://www.icra2023.org/">ICRA 2023</a></em></h3>
+		</header>
+			<div class="page-body">
+				<figure id="c79f4a6f-fcdb-4b18-8c69-523f0d002f19" class="image"><img class="figure-1" src="SymForce%20Tutorial%20ICRA%202023%20fc96ee1f500540bd8d9c4ece5fdef6ec/linearization.png"/></figure><h2 id="110bff2f-df81-4edc-94e2-d35a9ddbf3bc" class="">Introduction</h2><p id="8a15f43e-49c1-4f94-8685-a556a0930891" class="">This tutorial introduces the use of symbolic computation, code generation, and nonlinear optimization to solve robotics problems like SLAM, MPC, calibration, bundle adjustment, and controls with the recent <a href="https://github.com/symforce-org/symforce">SymForce</a> software library.</p><p id="4fb3f70d-6889-41fe-b66c-cddd78508b9f" class="">This underused model of robotics development can result in faster runtime performance, faster development cycles, and fewer lines of code versus standard approaches, sometimes by an order of magnitude. During this interactive session, attendees will employ these techniques to solve a localization problem and an MPC problem, as well as deep dive into the underlying methods.</p><p id="044562d4-7ffa-4df6-a5f0-1f185bec2354" class="">The SymForce library is used as a tool to demonstrate the following concepts:</p><ol type="1" id="cf407cfc-e04d-499e-8f62-f7899d04e871" class="numbered-list" start="1"><li><strong>Symbolic Math: </strong>Problems are modeled symbolically in Python, making it easy to create differentiable symbolic functions using, e.g., 3D geometry and camera models. This allows introspecting and analyzing expressions separately from their runtime implementations.</li></ol><ol type="1" id="b88cba9d-99f1-4e1c-9646-a18716ba12ec" class="numbered-list" start="2"><li><strong>Code Generation: </strong>Symbolic functions are automatically converted into highly performant functions in other programming languages, such as C++. Function flattening and subexpression elimination reduce the number of unnecessary operations at runtime.</li></ol><ol type="1" id="ca004ad1-eb4d-4120-b546-c30a1b4a46e8" class="numbered-list" start="3"><li><strong>Optimization </strong>— Generated functions are used in conjunction with different optimization algorithms to solve a variety of robotics problems. The primary focus will be on tangent-space nonlinear least squares using Levenberg-Marquardt.</li></ol><p id="fdc995dd-bbcc-4310-b40c-b9d0d3f01e07" class="">
+</p><figure id="b3e811c8-bc12-47fd-9564-5be79ba84886" class="image"><img class="figure-2"  src="SymForce%20Tutorial%20ICRA%202023%20fc96ee1f500540bd8d9c4ece5fdef6ec/architecture.png"/></figure><h2 id="ff74cd95-0e48-4c33-9423-069f6efce68b" class="">Intended Audience</h2><p id="1d3829be-e9e2-432b-9c75-39ec1649076d" class="">This tutorial is targeted at roboticists in both industry and academia interested in faster development of performant code for use in robotics applications. No prior knowledge of symbolic computation or the SymForce library is expected, though attendees should have some familiarity with programming in Python. Attendees are encouraged to bring laptops for interactive use. The learnings are broadly useful for both education and for production robotics use.</p><h2 id="a5401f9a-250d-4292-8405-42b4d5ada48e" class="">Program</h2><table id="bdee9749-6a20-4b5a-b117-5da51f53d18e" class="simple-table"><thead class="simple-table-header"><tr id="292f38b7-8db9-40f3-8ce5-70b09285523a"><th id="mGrl" class="simple-table-header-color simple-table-header" style="width:119.99856567382812px">Time</th><th id="=gYe" class="simple-table-header-color simple-table-header" style="width:544.9985656738281px">Session</th></tr></thead><tbody><tr id="39b9c00e-87e6-4e82-af4a-af38373f07bf"><th id="mGrl" class="simple-table-header-color simple-table-header" style="width:119.99856567382812px">  8:30 - 9:00</th><td id="=gYe" class="" style="width:544.9985656738281px">Introduction to symbolic computing to accelerate robotics development</td></tr><tr id="6deaf644-8800-48a5-97c5-a47dd07a917a"><th id="mGrl" class="simple-table-header-color simple-table-header" style="width:119.99856567382812px">  9:00 - 10:00</th><td id="=gYe" class="" style="width:544.9985656738281px">Interactive session I: SymForce overview via a 3D robot localization example</td></tr><tr id="4dfbc338-bafb-44ff-b640-4fd85ceedee4"><th id="mGrl" class="simple-table-header-color simple-table-header" style="width:119.99856567382812px">10:00 - 10:30</th><td id="=gYe" class="" style="width:544.9985656738281px">Deep Dive on Jacobians, Performance, and Singularities</td></tr><tr id="0c163258-fc3f-4942-814f-b725a7443c90"><th id="mGrl" class="simple-table-header-color simple-table-header" style="width:119.99856567382812px">10:30 - 10:45</th><td id="=gYe" class="" style="width:544.9985656738281px">Coffee break</td></tr><tr id="1daf515c-b247-4356-b01e-5bbbb82301b2"><th id="mGrl" class="simple-table-header-color simple-table-header" style="width:119.99856567382812px">10:45 - 11:30</th><td id="=gYe" class="" style="width:544.9985656738281px">Interactive session II: Solving a nonlinear MPC problem</td></tr><tr id="b276a395-c29c-44c8-a594-bcce47007970"><th id="mGrl" class="simple-table-header-color simple-table-header" style="width:119.99856567382812px">11:30 - 12:00</th><td id="=gYe" class="" style="width:544.9985656738281px">Lightning Talks</td></tr><tr id="43eb3717-97db-45a7-aa71-fc7a4a26b9c7"><th id="mGrl" class="simple-table-header-color simple-table-header" style="width:119.99856567382812px">12:00 - 12:30</th><td id="=gYe" class="" style="width:544.9985656738281px">Panel Discussion — Use Cases, Future Directions</td></tr></tbody></table><h2 id="57ab5f3b-e05f-4ee0-a871-9a54541663ea" class="">Resources</h2><ul id="7770915c-9243-441d-9aa8-f7d4d6280b3c" class="bulleted-list"><li style="list-style-type:disc"><strong>Tutorial Code</strong>: <a href="https://github.com/symforce-org/symforce-workshop">https://github.com/symforce-org/symforce-workshop</a></li></ul><ul id="9c98927d-4149-46e3-a0c8-9eacbab95ac9" class="bulleted-list"><li style="list-style-type:disc"><strong>SymForce Code</strong>: <a href="https://github.com/symforce-org/symforce">https://github.com/symforce-org/symforce</a></li></ul><ul id="b03cab1f-c33a-4b57-b9ff-c4792ba76afd" class="bulleted-list"><li style="list-style-type:disc"><strong>SymForce Documentation</strong>: <a href="https://symforce.org/">https://symforce.org/</a></li></ul><h2 id="d1fde72c-eddf-48f8-85ef-67ce801c32bf" class="">Organizers</h2><ul id="f4b7200d-b768-4332-8862-933d2ad1fd1b" class="bulleted-list"><li style="list-style-type:disc"><strong>Hayk Martiros</strong>, Skydio, hayk@skydio.com</li></ul><ul id="1550ac71-07d5-412b-9875-b81d7210a2f8" class="bulleted-list"><li style="list-style-type:disc"><strong>Aaron Miller</strong>, Skydio, aaron@skydio.com</li></ul><ul id="db5c190a-be07-4d41-ae67-c932497d392c" class="bulleted-list"><li style="list-style-type:disc"><strong>Nathan Bucki</strong>, Skydio, nathan.bucki@skydio.com</li></ul><ul id="b8c7beed-4be9-483c-9da5-3d35094195b5" class="bulleted-list"><li style="list-style-type:disc"><strong>Bradley Solliday</strong>, Skydio, bradley.solliday@skydio.com</li></ul><ul id="c71c8c87-8b65-44e2-bb20-07c4fa4254de" class="bulleted-list"><li style="list-style-type:disc"><strong>Harrison Zheng</strong>, Skydio, harrison@skydio.com</li></ul><p id="24cf257e-d2d0-4cc0-a295-50785499e72e" class="">
+</p></div>
+<figure id="c79f4a6f-fcdb-4b18-8c69-523f0d002f19" class="image"><img class="figure-3" src="SymForce%20Tutorial%20ICRA%202023%20fc96ee1f500540bd8d9c4ece5fdef6ec/symforce_banner.png"/></figure>
+</article></body></html>
